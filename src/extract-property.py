@@ -1,0 +1,36 @@
+import json
+
+def validate_json(file_path):
+    try:
+        with open(file_path, "r") as file:
+            json.load(file)  # Attempt to load JSON
+        print("✅ JSON file is properly structured!")
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON structure is invalid: {e}")
+
+# Example usage
+#  validate_json("D:\projects\lthwbs\ytInitialData.json")
+
+
+with open("D:\projects\lthwbs\ytInitialData.json", "r", encoding="utf-8") as file:
+    data = json.load(file)
+
+    contents = data["contents"]["twoColumnBrowseResultsRenderer"]["tabs"][1]["tabRenderer"]["content"]["richGridRenderer"]["contents"]
+    print(f"Number of contents: {len(contents)}")
+    # for content in contents:
+    #     print(content["richItemRenderer"]["content"]["videoRenderer"]["title"])
+  
+    for content in contents:
+        if "richItemRenderer" in content:
+            rich_item = content["richItemRenderer"]
+            if "content" in rich_item and "videoRenderer" in rich_item["content"]:
+                video_renderer = rich_item["content"]["videoRenderer"]
+                if "title" in video_renderer: # and "simpleText" in video_renderer["title"]:
+                    title = video_renderer["title"] #["simpleText"]
+                    print(title)
+                else:
+                    print("Title not found")
+            else:
+                print("Video renderer not found")
+        else:
+            print("Rich item renderer not found")
