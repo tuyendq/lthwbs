@@ -8,11 +8,10 @@ def validate_json(file_path):
     except json.JSONDecodeError as e:
         print(f"❌ JSON structure is invalid: {e}")
 
-# Example usage
-#  validate_json("D:\projects\lthwbs\ytInitialData.json")
-
-
-with open("D:\projects\lthwbs\ytInitialData.json", "r", encoding="utf-8") as file:
+# json_file_path = "D:\projects\lthwbs\ytInitialData.json"
+json_file_path = "./data/ytInitialData.json"
+validate_json(json_file_path)
+with open(json_file_path, "r", encoding="utf-8") as file:
     data = json.load(file)
 
     contents = data["contents"]["twoColumnBrowseResultsRenderer"]["tabs"][1]["tabRenderer"]["content"]["richGridRenderer"]["contents"]
