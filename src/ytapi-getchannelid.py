@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 load_dotenv()  # Load environment variables from .env file
 
 channel_id = None
-# channel_name = "@betterversionvn"  # Replace with the desired channel name
 channel_handle = "@betterversionvn"  # Replace with the desired channel handle
 
 api_key = os.getenv("YOUTUBE_API_KEY")  # Set your YouTube Data API key as an environment variable
@@ -15,7 +14,6 @@ youtube = build('youtube', 'v3', developerKey=api_key)
 
 try:
     response = youtube.channels().list(
-        # forUsername=channel_name,
         forHandle=channel_handle,  # Replace with the actual handle
         part='id'
     ).execute()
