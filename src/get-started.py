@@ -5,7 +5,7 @@ import re
 # print(requests.__version__)
 
 # url = "https://youtube.com/@summaryversion/videos"
-url = "https://youtube.com/@betterversion/videos"
+url = "https://youtube.com/@betterversionvn/videos"
 response = requests.get(url)
 html_content = response.text
 
