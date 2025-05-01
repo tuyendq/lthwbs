@@ -3,5 +3,5 @@ __pypackages__/
 .uv/
 .cache/
 *.pyc
-.env/
+.env
 *.pyo
